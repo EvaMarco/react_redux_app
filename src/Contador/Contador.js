@@ -7,9 +7,10 @@ class Contador extends Component {
   }
 
   render() {
+    const {valor} = this.props;
     return (
       <div className="Contador">
-        0
+        {valor}
       </div>
     );
   }

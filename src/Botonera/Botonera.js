@@ -7,11 +7,12 @@ class Botonera extends Component {
   }
 
   render() {
+    const {inc, dec} =this.props;
     return (
       <div className="Botonera">
-        <button>Incrementar
+        <button onClick={inc}>Incrementar
         </button>
-        <button>
+        <button onClick={dec}>
           Decrementar
         </button>
       </div>
