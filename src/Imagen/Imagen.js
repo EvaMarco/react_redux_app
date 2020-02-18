@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Imagen.css';
 import logo from '../logo.svg';
+import {connect} from 'react-redux';
 
 class Imagen extends Component {
   constructor(props) {
@@ -9,9 +10,11 @@ class Imagen extends Component {
 
   render() {
     return (
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className={this.props.rotacion} alt="logo" />
     );
   }
 }
-
-export default Imagen;
+const mapStateToProps = (tienda) => ({
+  rotacion: tienda.Imagen.rotacion
+});
+export default connect(mapStateToProps, null)(Imagen);

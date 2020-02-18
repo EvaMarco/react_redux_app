@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Contador.css';
+import {connect} from 'react-redux'
 
 class Contador extends Component {
   constructor(props) {
@@ -7,13 +8,17 @@ class Contador extends Component {
   }
 
   render() {
-    const {valor} = this.props;
+    const {arroz} = this.props;
     return (
       <div className="Contador">
-        {valor}
+        {arroz}
       </div>
     );
   }
 }
 
-export default Contador;
+const mapStateToProps = (tienda) => ({
+  arroz: tienda.Estanteria.arroz
+})
+
+export default connect(mapStateToProps, null)(Contador);

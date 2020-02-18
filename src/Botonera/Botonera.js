@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Botonera.css';
+import {connect} from 'react-redux'
 
 class Botonera extends Component {
   constructor(props) {
@@ -20,4 +21,9 @@ class Botonera extends Component {
   }
 }
 
-export default Botonera;
+
+const mapDispatchProps = (dispatch) => ({
+  inc: () => dispatch({type: 'incrementar'}),
+  dec: () => dispatch({type: 'decrementar'}),
+})
+export default connect(null, mapDispatchProps)(Botonera) ;

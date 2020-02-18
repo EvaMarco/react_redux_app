@@ -3,10 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// me importa todas las estanterías trayendome el index
+import Estanterias from './Estanterias';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// Crea el Store y añadele el índice de los reducers
+const tienda = createStore(Estanterias);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render(
+  <Provider store={tienda}>
+    <App />
+  </Provider>, 
+  document.getElementById('root')
+);
+
+
 serviceWorker.unregister();
